@@ -1,0 +1,702 @@
+﻿/*.mainContent {
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: -5px;
+    overflow: hidden;
+    display: inline-block !important;
+    width: 100%;
+    padding-top: 141px;
+}*/
+@font-face {
+    font-family: nova-Bold;
+    src:url(../fonts/proximanova-bold.otf)
+}
+
+@font-face {
+    font-family: 'nova-light';
+    src: url('../fonts/proxima-nova-300.woff2');
+}
+
+@font-face {
+    font-family: 'Ubuntu-light';
+    src: url('../fonts/Ubuntu-Light.woff2');
+}
+
+@font-face {
+    font-family: 'Ubuntu-bold';
+    src: url('../fonts/Ubuntu-Bold.woff2');
+}
+
+@font-face {
+    font-family: 'Ubuntu-regular';
+    src: url('../fonts/Ubuntu-Regular.woff2');
+}
+
+.busqueda {
+    float:right;
+    margin-top: 16px;
+    overflow: hidden;
+    flex-direction:row;
+    margin-left: 7vw;
+}
+
+.logoMegatone {
+    margin-left: 10vw;
+}
+
+.dIB{
+    display: inline-block !important;
+}
+
+.oHidden {
+    overflow:hidden;
+}
+
+.w100{
+    width: 100%;
+}
+
+.BoxBusqueda {
+    display: flex;
+    float: right;
+    text-align: center;
+    justify-content: center;
+    background-color: #e53308;
+    width: 50px;
+    height: 40px;
+    border-radius: 0 5px 5px 0;
+}
+
+.icoBusqueda {
+    float: right;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px;
+    margin-top: 8px;
+    margin-left: 4px;
+}
+
+.footer {
+    font-size: 12px;
+    font-family: 'Ubuntu-light', sans-serif;
+}
+.fUbuntu-Regular {
+    font-family: 'Ubuntu-regular', sans-serif;
+}
+
+.fUbuntu-Light {
+    font-family: 'Ubuntu-Light','Trebuchet MS';
+}
+
+.B {
+    font-weight: bold;
+}
+
+#txtBusqueda {
+    padding: 0 10px;
+    box-sizing: initial;
+    height: 38px;
+    font-size: 16px;
+}
+
+.AjusteMobile {
+    float: right;
+}
+
+.pR {
+    position: relative !important;
+}
+
+.Div2 {
+    height: 95px;
+}
+
+.aliCenter {
+    text-align: center;
+}
+
+.bgcGrayCab {
+    background-color: #f4f4f4;
+}
+
+.bGray {
+    border: 1px solid #ddd;
+}
+
+.txtBusquedaUnicoNormal {
+    width: 400px;
+}
+
+::placeholder {
+    color: #ddd;
+}
+
+.lH40 {
+    line-height: 40px;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+.f22 {
+    font-size: 22px;
+}
+
+.f25 {
+    font-size: 25px;
+}
+
+.my-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.text-start {
+    text-align: left !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+    top: 0px;
+    left: 2px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+.icoCPD {
+    width: 16px;
+    height: 24px;
+    background: url(../img/marcadorCPD.svg);
+    background-size: 16px 24px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+a {
+    text-decoration: none !important;
+    font-family: nova-light;
+}
+
+a:hover {
+    color: #FF0000
+}
+
+.filtroCP {
+    text-align: left;
+    color: green;
+    font-size: 16px !important;
+    outline: none;
+    background-color: #f4f4f4;
+    border: none !important;
+    margin-right: -12px;
+    width: 190px;
+    font-weight: 300;
+    font-family: 'NovaMedium','Trebuchet MS';
+}
+.cp {
+    flex-direction:row;
+}
+
+.ContenedorBusquedaHeader {
+    position: relative;
+    margin-top: 18px;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.fRight {
+    float: right;
+}
+
+.marginCPD {
+    margin-top: 3px;
+    margin-left: 80px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ToolTip {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    color: #888;
+}
+
+.aliCenter {
+    text-align: center;
+}
+
+.h25p {
+    height: 25px;
+}
+
+.fLeft {
+    float: left;
+}
+
+.lH25 {
+    line-height: 25px;
+}
+
+.styleHr {
+    width: 173px;
+    margin-top: 1px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #636363 !important;
+    color: #636363 !important;
+    height: 1px;
+    border: none;
+}
+
+hr:not([size]) {
+    height: 1px;
+}
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: .25;
+}
+
+.mL15 {
+    margin-left: 15px;
+}
+
+.ToolTip > i {
+    text-align: center;
+    background: #FFF;
+    border: 1px solid #DDD;
+    border-radius: 2px;
+    position: absolute;
+    width: 100px !important;
+    left: 0px;
+    margin-left: 0px;
+    padding: 0px 0;
+    bottom: 70%;
+    margin-bottom: 15px;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s linear;
+    -moz-transition: opacity 0.5s linear;
+    -ms-transition: opacity 0.5s linear;
+    -o-transition: opacity 0.5s linear;
+    transition: opacity 0.5s linear;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.ToolTip i {
+    font-style: normal;
+}
+
+.icoSucursales {
+    margin-top: -4px;
+    width: 26px;
+    height: 34px;
+    background: url(../img/sucursales_2018.svg);
+    background-size: 26px 34px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.icoCuenta {
+    width: 25px;
+    height: 24px;
+    background-image: url(../img/ingresar_2018.svg);
+    background-size: 25px 24px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.divTextMiCuentaNormal {
+    display: block;
+}
+
+.f13 {
+    font-size: 13px;
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.cGray1 {
+    color: #666;
+}
+
+.mL4 {
+    margin-left: 4px;
+}
+
+.clear {
+    clear: both;
+}
+
+.mL6 {
+    margin-left: 6px;
+}
+
+.icoCarrito45 {
+    width: 45px;
+    height: 24px;
+    background-image: url(../img/carrito_2018.svg);
+    background-size: 27px 24px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.f14 {
+    font-size: 14px;
+}
+
+.cWhite {
+    color: #fff;
+}
+
+.fUbuntu-Bold {
+    font-family: 'Ubuntu-bold','Trebuchet MS';
+}
+
+.lH21 {
+    line-height: 21px;
+}
+
+.mL10 {
+    margin-left: 10px;
+}
+
+.icoCarritoCantidad {
+    width: 21px;
+    height: 21px;
+    background: url(../img/circulo_2018.svg);
+    background-size: 21px 21px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.lblCantidadProductos {
+    color: #f04603 !important;
+    font-family: 'NovaLight','Trebuchet MS';
+}
+
+#DivInfoCarrito {
+    position: absolute;
+    left: -263px;
+    width: 300px;
+    opacity: 0;
+    display: block;
+    box-shadow: 0 3px 4px #aaa;
+    top: -500px;
+    transition: opacity .3s;
+    background-color: #fff;
+    z-index: 99999;
+    cursor: default;
+}
+
+#DivBarraMenu {
+    transition: height .15s ease-in-out;
+    height: 41px;
+    line-height: 41px;
+    border-bottom: 1px solid rgba(99, 99, 99, .25);
+}
+
+.DivBarraMenuVisible {
+    line-height: 41px !important;
+    overflow: visible !important;
+}
+
+.fNova-Light {
+    font-family: 'NovaLight','Trebuchet MS';
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*
+.dBlock {
+    display: block;
+}
+
+.divMenu {
+    height: 100%;
+}
+
+.DivBarraMenuVisible {
+    line-height: 41px !important;
+    overflow: visible !important;
+}
+
+.divMenu {
+    z-index: 10;
+}
+
+.w160p {
+    width: 160px;
+}*/
+
+.h40p {
+    height: 40px;
+}
+
+.pA {
+    position: absolute !important;
+}
+
+.t0 {
+    top: 0;
+}
+
+.l0 {
+    left: 0;
+}
+
+.zIndex5 {
+    z-index: 10;
+}
+
+.divSeparadorMenu {
+    width: 1px;
+    height: 41px;
+    background-color: #CDCDCD;
+    display: block;
+}
+
+.pR15 {
+    padding-right: 15px;
+}
+
+.pL15 {
+    padding-left: 15px;
+}
+
+.mR7 {
+    margin-right: 7px;
+}
+
+.cLightGray3 {
+    color: #444;
+}
+
+.pLR {
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+.fNova-Light {
+    font-family: 'NovaLight','Trebuchet MS';
+}
+
+/*.icoMenu {
+    width: 40px;
+    height: 39px;
+    background: url(../img/rayitas_2018.svg);
+    background-size: 40px 39px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    transition: background .3s;
+}*/
+
+.SoloDesktop {
+    display: block;
+}
+
+.f18 {
+    font-size: 18px;
+}
+
+.h40p {
+    height: 40px;
+}
+
+.cOrange {
+    color: #e9460c;
+}
+
+.f15 {
+    font-size: 15px;
+}
+
+.fNova-Light {
+    font-family: 'NovaLight','Trebuchet MS';
+}
+
+.oHidden {
+    overflow: hidden;
+}
+
+.aliJustify {
+    text-align: justify;
+}
+
+.form-group {
+    margin-block: 1rem;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select {
+    word-wrap: normal;
+}
+
+button, select {
+    text-transform: none;
+}
+
+.mx-1 {
+    margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
+}
+
+.btnRojo {
+    background-color: #f81704;
+    font-family: Ubuntu-regular;
+    font-size: 19px;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    width: 180px;
+}
+
+.aliRight {
+    text-align: right;
+}
+
+.f17 {
+    font-size: 17px;
+}
+
+.cGray {
+    color: #555;
+}
+
+.btnCancelar {
+    border: none;
+    background-color: transparent;
+}
+
+#MainContent_boton:hover {
+    color: #FFFF
+}
+@media (min-width: 1300px) .wResolucion1 {
+    width: 1300px;
+}
+
+@media (min-width: 1200px) .divMenu {
+    width: 1200px;
+}
+
+@media (min-width: 1200px) .wResolucion1 {
+    width: 1200px;
+}
+
+@media (min-width: 1200px) #DivBarraMenu {
+    border-bottom: 1px solid #CCC;
+}
+
+@media (min-width: 1200px) .bgcMenuCategoria {
+    background-color: #FFF;
+}
+
+@media (min-width: 1200px) .bgcMenuCategoria {
+    background-color: #fff;
+}
+
+@media (min-width: 1200px) .divSubMenu {
+    height: 40px;
+    position: absolute;
+    width: 1030px;
+    left: 170px;
+    text-align: left !important;
+}
+
+@media (min-width: 992px) .container, .container-lg, .container-md, .container-sm {
+    max-width: 960px;
+}
+
+@media (min-width: 768px) .container, .container-md, .container-sm {
+    max-width: 720px;
+}
+
+@media (min-width: 576px) .container, .container-sm {
+    max-width: 540px;
+}
+
+@media (min-width: 992px) .text-lg-start {
+    text-align: left!important;
+}

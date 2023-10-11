@@ -1,0 +1,294 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Contacto.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <%--boostrap css --%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%-- fontawesome css --%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <%-- jquery --%>
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <%-- popper js --%>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <%-- boostrap js --%>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link href="css/StyleSheet.css" rel="stylesheet" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="mainContent">
+
+        
+        <!-- navbar -->
+        <div class="aliCenter w100 pR Div2 bgcGrayCab">            
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <!-- logo -->
+                <div class="logoMegatone">
+                    <a class="navbar-brand" href="#">
+                        <svg width="52" height="47" viewBox="0 0 4284 3895">
+                            <g>
+                                <path d="M567 1730l476 829 201 -1038c10,-47 64,-51 72,0l188 1232c11,72 84,71 84,71l347 -1c0,0 67,2 106,-64l642 -1233c23,-41 73,-26 67,5l-246 1292 563 -2 292 -455 310 -1637 -1081 0 -517 983c-24,37 -78,41 -86,-5l-156 -978 -1074 0 -189 1000 0 0z" style="fill: rgb(255, 255, 255);"></path>
+                                <path d="M4284 386c0,-104 -76,-189 -175,-205 -455,-87 -1111,-181 -1967,-181 -676,0 -1336,63 -1977,184 -94,20 -165,103 -165,203 0,24 4,47 12,68 158,439 344,865 555,1275l189 -1000 1074 0 156 978c8,46 62,43 86,5l517 -983 1081 0 -310 1638c364,-600 670,-1239 911,-1909l-1 0c9,-23 14,-47 14,-72zm-1534 1144c6,-31 -43,-46 -67,-5l-642 1233c-39,66 -106,64 -106,64l-347 1c0,0 -73,2 -84,-71l-188 -1232c-9,-51 -63,-47 -72,0l-201 1038c285,448 603,875 950,1274l0 0c38,39 91,62 149,62 58,0 110,-23 148,-62l0 0c279,-321 538,-659 778,-1012l-564 2 246 -1292z" style="fill: rgb(229, 51, 8);"></path>
+                            </g>
+                        </svg>
+                    <img src="img/logo-mega-net22.svg" width="213" height="46"/>
+                </a>
+                </div>
+                <!-- buscador -->
+                <div class="busqueda right">
+                    <div class="AjusteMobile pR">
+                        <input placeholder="Buscar productos" onkeyup="BuscadorKeyUp(event);" type="text" id="txtBusqueda" class="txtBusquedaUnicoNormal lH40 dBlock h38p bGray">
+                         <!-- lupa svg -->                    
+                        <span class="BoxBusqueda">
+                            <span class="icoBusqueda">
+                                <svg viewBox="0 0 129 129" enable-background="new 0 0 129 129" width="24px" height="24px">
+                                    <g>
+                                        <path d="M51.6,96.7c11,0,21-3.9,28.8-10.5l35,35c0.8,0.8,1.8,1.2,2.9,1.2s2.1-0.4,2.9-1.2c1.6-1.6,1.6-4.2,0-5.8l-35-35   c6.5-7.8,10.5-17.9,10.5-28.8c0-24.9-20.2-45.1-45.1-45.1C26.8,6.5,6.5,26.8,6.5,51.6C6.5,76.5,26.8,96.7,51.6,96.7z M51.6,14.7   c20.4,0,36.9,16.6,36.9,36.9C88.5,72,72,88.5,51.6,88.5c-20.4,0-36.9-16.6-36.9-36.9C14.7,31.3,31.3,14.7,51.6,14.7z" fill="#ffff"></path>
+                                    </g>
+                                </svg>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Codigo Postal -->
+                <div class="ContenedorBusquedaHeader fRight d-flex">                
+                    <div class="fRight marginCPD esMobile" style="margin-right: 0px">
+                        <div class="fLeft hP h25p lH25 aliCenter DivSucursales ToolTip marginIcoCPD" style="margin-left: -23px; margin-top: 3px;">
+                            <a class="lH25 dIB aliCenter">
+                                <div class="icoCPD fLeft"></div>
+                            </a>
+                        </div>
+                        <input type="number" autocomplete="off" placeholder="Ingresá tu Código Postal" id="CPBuscado2" class="inputCP FontMedium filtroCP outlinenone bGray contents">
+                        <hr class="styleHr" />
+                    </div>
+                </div>
+                <!-- Opciones -->                
+                <div id="DivOpciones" class="fNova-Light fRight divOpciones">
+                    <div class="fLeft mL15 pR hP h25p lH25 aliCenter DivSucursales ToolTip">
+                       <i>SUCURSALES</i>
+                        <a href="https://www.megatone.net/Sucursales/" class="lH25 dIB aliCenter">
+                            <div class="icoSucursales fLeft"></div> 
+                            <div id="DivTextoSucursales" class="fLeft mL4 f13 cGray1 divTextSucursalesNormal"></div> 
+                            <div class="clear"></div></a>
+                    </div>
+                    <div class="fLeft mL10 pR hP opcionMiCuenta h25p lH25">
+                        <div id="icoCuentaAux" class="pR hP aliCenter ToolTip">
+                            <i>MIS COMPRAS</i> 
+                            <a href="/MisCompras.aspx" class="icoCuenta fLeft"></a> 
+                            <a id="DivTextoMiCuenta" href="/MisCompras.aspx" class="fLeft mL4 f13 cGray1 divTextMiCuentaNormal"></a> 
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="fLeft mL6 pR hP h25p lH25">
+                        <div id="icoCarritoAux" onclick="VerOcultarInfoCarrito()" class="icoCarrito45 pR hP ToolTip">
+                            <i>CARRITO</i> 
+                            <div id="IcoCarrito" class="icoCarritoCantidad fRight aliCenter fUbuntu-Bold f14 cWhite lH21">
+                                <label id="LabelCantidadDeArticulos" class="lblCantidadProductos">0</label>
+                            </div> 
+                            <div class="clear"></div> <div id="DivInfoCarrito"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+                <!-- burguer menu -->
+
+                <%--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>--%>
+
+            </nav>
+            <!-- Barra Menu -->
+                <div id="DivBarraMenu" class="aliCenter fNova-Light f14 dBlock pR w100 bgcWhite" style="margin-top:3vh;">
+                    <div class="wResolucion1 dIB pR divMenu">
+                        <div id="DivCorrectorHover" class="pA l0 t0 w160p h40p dBlock">
+                        </div>
+                        
+                        <nav id="DivMenuExtra_Master" class="divSubMenu fNova-Light oHidden f15 aliRight">
+                            <a href="https://www.megatone.net/listado/tv-audio-video/tv-led-smart-tv/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra180">LED/SMART TV</a> 
+                            <a href="https://www.megatone.net/listado/electrodomesticos/lavado/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra181">LAVADO</a> 
+                            <a href="https://www.megatone.net/listado/electrodomesticos/heladeras-freezers/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra182">HELADERAS</a> 
+                            <a href="https://www.megatone.net/listado/electrodomesticos/climatizacion/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra183">CLIMATIZACIÓN</a> 
+                            <a href="https://www.megatone.net/listado/tecnologia/celulares/smartphones-celulares/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra184">CELULARES</a> 
+                            <a href="https://www.megatone.net/listado/tecnologia/informatica/notebooks/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra185">NOTEBOOKS</a> 
+                            <a href="https://www.megatone.net/listado/hogar-jardin/colchones-sommiers-camas/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra186">COLCHONES</a> 
+                            <a href="https://www.megatone.net/listado/electrodomesticos/cocinas-hornos/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra187">COCINAS</a> 
+                            <a href="https://www.megatone.net/seguros/" class="dIB lH40 pLR m1 cLightGray3 TituloMenuExtra187">SEGUROS</a>
+                        </nav>
+                        <div id="DivCategoriasAux" class="divCategorias oHidden cDarkGray2" style="max-height: 2000px; height: 0px; margin-left: 0px; width: 600px;">
+                            <div id="DivMenu_Master" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';" class="divCategorias1 lH25 fUbuntu-Light f15 h100 aliLeft pR scrollbarMenu"></div>
+                        </div> <nav id="menuCategoriasDesktop"></nav> <nav id="menuCategoriasMobile" class="overlay"><div id="menuCategoriasMobileHtml" class="overlay-content"></div></nav></div></div>            
+        </div>
+        <div id="MainContent_panel_consulta" class="container">
+             <!-- Contactanos -->
+            <div class="col col-12 text-start" style="margin-top:6vh;">
+                <div class="fUbuntu-Regular f25 B">Contactanos</div>                
+                <p class="mb-3 mt-2 f22" style="color: #e94107">¡Ingresá tus datos y responderemos a la brevedad!</p>
+            </div>
+            <hr class="my-4">
+        <!-- Form -->
+        <div class="row topBorde pt-4">
+            <div class="col-12 col-lg-6">
+                <div class="bootstrap">
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-end">Nombre</label>
+                        <div class="col-9">                            
+                            <asp:TextBox runat="server" name="ctl00$MainContent$txtNombre" type="text" id="MainContent_txtNombre" title="Por favor, ingresá tu nombre" class="form-control" autocomplete="Off" required="required" placeholder="Ej. Julio (Requerido)"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-end">Apellido</label>
+                        <div class="col-9">
+                            <asp:TextBox runat="server" name="ctl00$MainContent$txtApellido" type="text" id="MainContent_txtApellido" title="Por favor, ingresá tu apellido..." class="form-control" autocomplete="Off" required="required" placeholder="Ej. Cortázar (Requerido)"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-end">Domicilio</label>
+                        <div class="col-9">
+                            <asp:TextBox runat="server" name="ctl00$MainContent$txtDomicilio" type="text" id="MainContent_txtDomicilio" title="Por favor, ingresá tu domicilio" class="form-control" autocomplete="Off" placeholder="Ej. Av. San Martín 1987 1º B" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <div class="row justify-content-end">
+                                <label class="col-3 col-lg-6 col-form-label text-end">Código Postal</label>
+                                <div class="col-9 col-lg-6">
+                                    <asp:TextBox runat="server" name="ctl00$MainContent$txtCP" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$MainContent$txtCP\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="MainContent_txtCP" title="Ingresá tu Código Postal" class="form-control" required="required" type="number" placeholder="Ej. 2300" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <label class="col-3 col-form-label text-end">Localidad</label>
+                                <div class="col-9">
+                                    <asp:TextBox runat="server" name="ctl00$MainContent$ddlLocalidad" type="text" id="MainContent_ddlLocalidad" class="form-control w100 hP fLeft" placeholder="Ej. Rafaela" />
+	                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-end">Provincia</label>
+                        <div class="col-9">
+                            <asp:TextBox runat="server" name="ctl00$MainContent$txtProvincia" type="text" id="MainContent_txtProvincia" class="form-control" placeholder="Ej. Santa Fe" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-end">Celular</label>
+                        <div class="col-4">
+                            <asp:TextBox runat="server" name="ctl00$MainContent$txtPrefijo" id="MainContent_txtPrefijo" class="form-control" type="text" pattern="[0-9]*" min="11" Max="3999" placeholder="Sin el 0" />
+                        </div>
+                        <div class="col-5">
+                            <asp:TextBox runat="server" name="ctl00$MainContent$txtTelefono" id="MainContent_txtTelefono" class="form-control" type="text" pattern="[0-9]*" min="0" placeholder="Sin el 15" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="bootstrap">
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-end">Email</label>
+                        <div class="col-9">
+                            <asp:TextBox runat="server" name="ctl00$MainContent$txtEmail" id="MainContent_txtEmail" class="form-control" type="email" required="required" placeholder="Ej. jcortazar@email.com (Requerido)" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <label class="col-3  col-lg-6 my-auto text-end ps-0">Horario Contacto</label>
+                                <div class="col-9 col-lg-6 colDerCodigoPostal">
+                                    <asp:DropDownList runat="server" name="ctl00$MainContent$ddlHorario" id="MainContent_ddlHorario" class="form-control">
+	                                    <asp:ListItem value="Mañana" Text="Mañana"/>
+	                                    <asp:ListItem value="Medio Dia" Text="Medio Dia"/>
+	                                    <asp:ListItem value="Tarde" Text="Tarde"/>
+	                                    <asp:ListItem value="Noche" Text="Noche"/>
+	                                    <asp:ListItem value="Indistinto" Text="Indistinto"/>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <label class="col-3 col-form-label text-end">Motivo</label>
+                                <div class="col-9">
+                                    <asp:DropDownList runat="server" name="ctl00$MainContent$ddlMotivo" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$MainContent$ddlMotivo\&#39;,\&#39;\&#39;)&#39;, 0)" id="MainContent_ddlMotivo" class="form-control w100 hP fLeft">
+	                                    <asp:ListItem value="1" Text="Consulta de producto" />
+	                                    <asp:ListItem value="2" Text="Solicitud de Información" />
+	                                    <asp:ListItem value="3" Text="Sugerencia" />
+	                                    <asp:ListItem value="4" Text="Reconocimiento / Felicitación" />
+	                                    <asp:ListItem value="5" Text="Ofrecimiento de producto / Servicio" />
+	                                    <asp:ListItem value="6" Text="Reclamo" />
+	                                    <asp:ListItem value="7" Text="Reclamo por falla de producto" />
+	                                    <asp:ListItem value="8" Text="Otro" />
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label text-end">Mensaje</label>
+                        <div class="col-9">
+                            <asp:TextBox runat="server" TextMode="MultiLine" name="ctl00$MainContent$txtConsulta" id="txtConsulta" rows="5" cols="57" placeholder="Escriba su mensaje o consulta..." required="required" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group mt-5 mt-lg-3 row">
+                        <div class="d-none d-lg-block col-3"></div>
+                        <div class="col-12 col-lg-9">
+                            <div class="Alineacion-Recaptcha">
+                                <div class="g-recaptcha" data-sitekey="6LfIOjEUAAAAANgySQYUSdC0QdG4qZ5_Oxqo9i2M"></div>
+                                <%--<span id="MainContent_LblErrorReCaptcha" class="cRed dNone">Validación del captcha incorrecta. Intente nuevamente.</span>--%>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div>            
+     
+            </div>
+        </div>
+            <div class="form-group row text-start mt-3">
+            <div class="col-12 text-start text-lg-start">
+                <asp:Button id="MainContent_boton" onserverclick="EnviarButton" class="btnRojo hP mx-1 dIB" runat="server" Text="¡Enviar consulta!" OnClick= "ButtonEnviar_Click"/>
+                <asp:Button onserverclick="CancelarButton" UseSubmitBehavior="false" runat="server" CausesValidation="false" class="aliRight btnCancelar fUbuntu-Light f17 dIB cGray mx-1" Text="Cancelar" OnClick= "ButtonCancelar_Click"/>
+            </div>
+        </div>
+        </div>
+        
+
+    </div>
+    <hr class="my-4"/>
+    <div class="container dIB aliJustify fUbuntu-Light f12 mb-4">
+        <strong>POLÍTICA DE PRIVACIDAD MEGATONE</strong><br />
+        Tus datos, siempre seguros. Cuando ingresás tus datos en el sitio de Megatone, 
+                tenés la certeza de que van a ser tratados bajo estrictas normas de seguridad. 
+                Esta información será recibida en nuestros servidores, sin que pueda ser leída 
+                o capturada por terceros. Además, te aseguramos el uso exclusivo y confidencial 
+                de tus datos dentro de las empresas que conforman el grupo de Megatone. 
+                Nos comprometemos, en este sentido, a no ceder la información ingresada a terceros, 
+                y a darle un uso adecuado a las normativas legales vigentes.
+    </div>
+
+        <!-- Main Content Placeholder -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- -->
+        
+
+    </form>
+</body>
+</html>
